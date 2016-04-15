@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.View;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -29,8 +26,8 @@ public class MainActivity  extends Activity{
         menuLists = new ArrayList<String>();  
         for (int i = 0; i < 5; i++) 
             menuLists.add("菜单0" + i);  
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, menuLists);  
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,menuLists);  
         mDrawerList.setAdapter(adapter);  
-//        mDrawerList.setOnItemClickListener(this);  
+//        mDrawerList.setOnItemClickListener(this);
 	}
 }
