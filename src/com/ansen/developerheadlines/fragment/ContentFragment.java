@@ -9,8 +9,13 @@ import android.widget.TextView;
 
 import com.ansen.developerheadlines.R;
 
+/**
+ * 显示内容的Fragment
+ * @author Ansen
+ * @create time 2016-04-15
+ */
 public class ContentFragment  extends Fragment{
-	private TextView textView;  
+	private TextView textView;
     
     @Override  
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {  
