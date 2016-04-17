@@ -1,32 +1,45 @@
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"  
-    android:id="@+id/drawer_layout"  
-    android:layout_width="match_parent"  
-    android:layout_height="match_parent" >  
-  
-    <!-- The main content view -->  
-    <FrameLayout  
-        android:id="@+id/content_frame"  
-        android:layout_width="match_parent"  
-        android:layout_height="match_parent" > 
-    </FrameLayout>  
-    
-    <TextView 
-        android:layout_width="wrap_content"  
-        android:layout_height="wrap_content"
-        android:text="这是首页"
-        android:textSize="26sp"
-        android:gravity="center"/>
-  
-    <!-- The navigation view -->  
-    <ListView  
-        android:id="@+id/left_drawer"  
-        android:layout_width="240dp"  
-        android:layout_height="match_parent"  
-        android:layout_gravity="start"  
-        android:background="#ffffcc"  
-        android:choiceMode="singleChoice"  
-        android:divider="@android:color/transparent"  
-        android:dividerHeight="0dp" >  
-    </ListView>  
-  
-</android.support.v4.widget.DrawerLayout>  
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <include
+            android:id="@+id/rl_title"
+            layout="@layout/layout_main_title" />
+
+        <!-- The main content view -->
+
+        <FrameLayout
+            android:layout_below="@+id/rl_title"
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </FrameLayout>
+    </RelativeLayout>
+
+    <!-- <TextView -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:text="这是首页" -->
+    <!-- android:textSize="26sp" -->
+    <!-- android:gravity="center"/> -->
+
+
+    <!-- The navigation view -->
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#ffffcc"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp" >
+    </ListView>
+
+</android.support.v4.widget.DrawerLayout>

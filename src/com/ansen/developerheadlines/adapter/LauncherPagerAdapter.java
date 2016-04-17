@@ -24,12 +24,13 @@ public class LauncherPagerAdapter extends PagerAdapter implements OnClickListene
 	private ILauncherView launcherView;
 	
 	private List<View> views;
+	//每页显示的图片
 	private int[] images=new int[]{R.drawable.tutorial_1,R.drawable.tutorial_2,R.drawable.tutorial_3,R.drawable.tutorial_4};
 	
 	public LauncherPagerAdapter(Context context,ILauncherView launcherView){
 		views=new ArrayList<View>();
 		this.launcherView=launcherView;
-		
+		//初始化每页显示的View
 		for(int i=0;i<images.length;i++){
 			View item=LayoutInflater.from(context).inflate(R.layout.activity_luancher_pager_item, null);
 			ImageView imageview=(ImageView) item.findViewById(R.id.imageview);
