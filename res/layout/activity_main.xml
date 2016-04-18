@@ -5,7 +5,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true" >
 
         <include
             android:id="@+id/rl_title"
@@ -14,32 +16,33 @@
         <!-- The main content view -->
 
         <FrameLayout
-            android:layout_below="@+id/rl_title"
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_title"
+            android:background="@color/white_normal" >
         </FrameLayout>
     </RelativeLayout>
 
-    <!-- <TextView -->
-    <!-- android:layout_width="wrap_content" -->
-    <!-- android:layout_height="wrap_content" -->
-    <!-- android:text="这是首页" -->
-    <!-- android:textSize="26sp" -->
-    <!-- android:gravity="center"/> -->
-
-
     <!-- The navigation view -->
-
-    <ListView
+    <FrameLayout
         android:id="@+id/left_drawer"
-        android:layout_width="240dp"
+        android:layout_width="280dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#ffffcc"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp" >
-    </ListView>
+        android:layout_gravity="start" >
+
+        <include layout="@layout/layout_main_left" />
+    </FrameLayout>
+
+    <!-- <ListView -->
+    <!-- android:id="@+id/left_drawer" -->
+    <!-- android:layout_width="240dp" -->
+    <!-- android:layout_height="match_parent" -->
+    <!-- android:layout_gravity="start" -->
+    <!-- android:background="#ffffcc" -->
+    <!-- android:choiceMode="singleChoice" -->
+    <!-- android:divider="@android:color/transparent" -->
+    <!-- android:dividerHeight="0dp" > -->
+    <!-- </ListView> -->
 
 </android.support.v4.widget.DrawerLayout>

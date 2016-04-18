@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/iv_menu"
-        android:text="Android开发者666"
+        android:text="关注公众号[Android开发者666]"
         android:layout_centerVertical="true"
         android:textColor="@color/white_normal"
         android:textSize="16sp" />
