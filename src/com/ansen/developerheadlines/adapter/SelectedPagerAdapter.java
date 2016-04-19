@@ -13,30 +13,31 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.ansen.developerheadlines.R;
-import com.ansen.developerheadlines.iview.ILauncherView;
+import com.ansen.developerheadlines.iview.ICarousePagerSelectView;
 
 /**
- * ViewPager适配器
+ * 轮播动画 ViewPager适配器
  * @author ansen
- * @create time 2016-04-15
+ * @create time 2016-04-19
  */
-public class LauncherPagerAdapter extends PagerAdapter implements OnClickListener{
-	private ILauncherView launcherView;
-	
+public class SelectedPagerAdapter extends PagerAdapter implements OnClickListener{
 	private List<View> views;
 	//每页显示的图片
-	private int[] images=new int[]{R.drawable.tutorial_1,R.drawable.tutorial_2,R.drawable.tutorial_3,R.drawable.tutorial_4};
+	private int[] images=new int[]{R.drawable.icon_selected_carousel_one,R.drawable.icon_selected_carousel_two,R.drawable.icon_selected_carousel_three};
+	private ICarousePagerSelectView carousePagerSelectView;
 	
-	public LauncherPagerAdapter(Context context,ILauncherView launcherView){
+	public SelectedPagerAdapter(Context context,ICarousePagerSelectView carousePagerSelectView){
+		this.carousePagerSelectView=carousePagerSelectView;
+		
 		views=new ArrayList<View>();
-		this.launcherView=launcherView;
-		//初始化每页显示的View
-		for(int i=0;i<images.length;i++){
-			View item=LayoutInflater.from(context).inflate(R.layout.activity_luancher_pager_item, null);
-			ImageView imageview=(ImageView) item.findViewById(R.id.imageview);
-			imageview.setImageResource(images[i]);
-			item.findViewById(R.id.tv_start_headlines).setOnClickListener(this);
-			views.add(item);
+		
+		for(int i=0;i<images.length;i++){//初始化每页显示的View
+			View item=LayoutInflater.from(context).inflate(R.layout.fragment_selected_pager_item, null);
+			ImageView imageView=(ImageView) item.findViewById(R.id.imageview);
+			imageView.setImageResource(images[i]);
+			imageView.setTag(i);
+			imageView.setOnClickListener(this);
+			views.add(imageView);
 		}
 	}
 	
@@ -66,8 +67,8 @@ public class LauncherPagerAdapter extends PagerAdapter implements OnClickListene
 	}
 
 	@Override
-	public void onClick(View v) {
-		launcherView.gotoMain();
+	public void onClick(View v){
+		int index=(Integer) v.getTag();
+		carousePagerSelectView.carouseSelect(index);
 	}
-	
 }

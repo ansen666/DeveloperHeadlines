@@ -1,4 +1,4 @@
-package com.ansen.developerheadlines.view;
+package com.ansen.developerheadlines.iview;
 
 public interface ILauncherView {
 	public void gotoMain();

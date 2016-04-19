@@ -3,6 +3,7 @@ package com.ansen.developerheadlines.activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.View;
@@ -12,6 +13,9 @@ import android.widget.RelativeLayout;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.fragment.ContentFragment;
+import com.ansen.developerheadlines.fragment.GiftFragment;
+import com.ansen.developerheadlines.fragment.MainFragment;
+import com.ansen.developerheadlines.fragment.ShareFragment;
 
 public class MainActivity extends FragmentActivity{
 	private DrawerLayout mDrawerLayout;
@@ -20,7 +24,9 @@ public class MainActivity extends FragmentActivity{
 	
 	private int currentSelectItem = R.id.rl_home;// 默认首页
 	
-	private ContentFragment contentFragment;
+	private MainFragment mainFragment;
+	private ShareFragment shareFragment;
+	private GiftFragment giftFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +39,9 @@ public class MainActivity extends FragmentActivity{
 		
 		initLeftMenu();//初始化左边菜单
 		
-		contentFragment=new ContentFragment();
-		getSupportFragmentManager().beginTransaction().add(R.id.content_frame,contentFragment).commit();  
+//		contentFragment=new ContentFragment();
+		mainFragment=new MainFragment();
+		getSupportFragmentManager().beginTransaction().add(R.id.content_frame,mainFragment).commit();  
 
 		setWindowStatus();
 	}
@@ -57,26 +64,68 @@ public class MainActivity extends FragmentActivity{
 			if (currentSelectItem != v.getId()) {//防止重复点击
 				currentSelectItem=v.getId();
 				noItemSelect();
-				
+				changeFragment(v.getId());//设置fragment显示切换
 				switch (v.getId()) {
 				case R.id.rl_home:
 					rlHome.setSelected(true);
-					contentFragment.setContent("这是首页");
 					break;
 				case R.id.rl_gift:
 					rlGift.setSelected(true);
-					contentFragment.setContent("这是礼物兑换");
 					break;
 				case R.id.rl_share:
 					rlShare.setSelected(true);
-					contentFragment.setContent("这是我的分享");
 					break;
 				}
-				
 				mDrawerLayout.closeDrawer(Gravity.LEFT);
 			}
 		}
 	};
+	
+	/**
+	 * 改变fragment的显示
+	 * @param resId
+	 */
+	private void changeFragment(int resId) {
+		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();//开启一个Fragment事务
+		
+		hideFragments(transaction);//隐藏所有fragment
+		if(resId==R.id.rl_home){//主页
+			if(mainFragment==null){//如果为空先添加进来.不为空直接显示
+				mainFragment = new MainFragment();
+				transaction.add(R.id.content_frame,mainFragment);
+			}else {
+				transaction.show(mainFragment);
+			}
+		}else if(resId==R.id.rl_share){
+			if(shareFragment==null){
+				shareFragment = new ShareFragment();
+				transaction.add(R.id.content_frame,shareFragment);
+			}else {
+				transaction.show(shareFragment);
+			}
+		}else if(resId==R.id.rl_gift){
+			if(giftFragment==null){
+				giftFragment = new GiftFragment();
+				transaction.add(R.id.content_frame,giftFragment);
+			}else {
+				transaction.show(giftFragment);
+			}
+		}
+		transaction.commitAllowingStateLoss();//一定要记得提交事务
+	}
+	
+	/**
+	 * 显示之前隐藏所有fragment
+	 * @param transaction
+	 */
+	private void hideFragments(FragmentTransaction transaction){
+		if (mainFragment != null)//不为空才隐藏,如果不判断第一次会有空指针异常
+			transaction.hide(mainFragment);
+		if (shareFragment != null)
+			transaction.hide(shareFragment);
+		if (giftFragment != null)
+			transaction.hide(giftFragment);
+	}
 	
 	private void noItemSelect(){
 		rlHome.setSelected(false);
@@ -99,11 +148,9 @@ public class MainActivity extends FragmentActivity{
 	private void setWindowStatus() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 			// 透明状态栏
-			getWindow().addFlags(
-					WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 			// 透明导航栏
-			getWindow().addFlags(
-					WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
 			// 设置状态栏颜色
 			getWindow().setBackgroundDrawableResource(R.color.main_color);
 		}

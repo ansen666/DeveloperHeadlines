@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.adapter.LauncherPagerAdapter;
-import com.ansen.developerheadlines.view.ILauncherView;
+import com.ansen.developerheadlines.iview.ILauncherView;
 
 /**
  * 第一次启动页面
@@ -44,12 +44,11 @@ public class LauncherActivity extends FragmentActivity implements ILauncherView 
 		adapter = new LauncherPagerAdapter(this, this);
 		viewpagerLauncher.setOffscreenPageLimit(2);
 		viewpagerLauncher.setCurrentItem(0);
-		viewpagerLauncher.setOnPageChangeListener(changeListener);
 		viewpagerLauncher.setAdapter(adapter);
 		viewpagerLauncher.setOnPageChangeListener(changeListener);
 		ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup);// 初始化底部显示控件
 		tips = new ImageView[4];
-		for (int i = 0; i < tips.length; i++) {
+		for (int i = 0; i < tips.length; i++){
 			ImageView imageView = new ImageView(this);
 			if (i == 0) {
 				imageView.setBackgroundResource(R.drawable.page_indicator_focused);

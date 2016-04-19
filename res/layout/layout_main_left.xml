@@ -15,10 +15,10 @@
         android:paddingRight="15dp"
         android:paddingTop="30dp" >
 
-        <ImageView
+        <com.ansen.developerheadlines.views.CircleImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/default_avatar" />
+            android:src="@drawable/timg" />
 
         <TextView
             android:layout_width="wrap_content"
