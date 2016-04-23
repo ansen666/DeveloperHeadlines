@@ -1,3 +1,8 @@
-bin/
-gen/com/ansen/developerheadlines/R.java
-gen/
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
