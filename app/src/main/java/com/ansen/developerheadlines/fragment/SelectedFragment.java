@@ -1,8 +1,11 @@
 package com.ansen.developerheadlines.fragment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,14 +20,19 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ansen.developerheadlines.R;
-import com.ansen.developerheadlines.adapter.SelectedAdapter;
+import com.ansen.developerheadlines.adapter.SelectedRecyclerAdapter;
 import com.ansen.developerheadlines.adapter.SelectedPagerAdapter;
+import com.ansen.developerheadlines.entity.SelectedArticle;
 import com.ansen.developerheadlines.iview.ICarousePagerSelectView;
+import com.chanven.lib.cptr.PtrClassicFrameLayout;
+import com.chanven.lib.cptr.PtrDefaultHandler;
+import com.chanven.lib.cptr.PtrFrameLayout;
+import com.chanven.lib.cptr.loadmore.OnLoadMoreListener;
+import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 
 /**
  * 精选
@@ -46,57 +54,70 @@ public class SelectedFragment extends Fragment{
 	private String[] carousePageStr=new String[]{"Android开发666","公众号:Ansen_666","Python 的练手项目有哪些值得推荐"};
 	
 	private RecyclerView recyclerView;
-	private SelectedAdapter selectedAdapter;
-	
+	private SelectedRecyclerAdapter selectedAdapter;
+
+	PtrClassicFrameLayout ptrClassicFrameLayout;
+	RecyclerView mRecyclerView;
+	private SelectedRecyclerAdapter adapter;
+	private RecyclerAdapterWithHF mAdapter;
+	int page = 0;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
 		View rootView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_selected, null);
 
-		recyclerView= (RecyclerView) rootView.findViewById(R.id.recyclerView);
-		LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-		recyclerView.setLayoutManager(mLayoutManager);
-
-		selectedAdapter=new SelectedAdapter();
-		recyclerView.setAdapter(selectedAdapter);
-
-		View headView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_selected_header, recyclerView,false);
-		
-		tvContent=(TextView) headView.findViewById(R.id.tv_content);
-		tvContent.setText(carousePageStr[0]);
-		
-		viewPager = (ViewPager)headView.findViewById(R.id.viewpager);
-		selectedPagerAdapter=new SelectedPagerAdapter(getActivity(),carousePagerSelectView);
-		viewPager.setOffscreenPageLimit(2);
-		viewPager.setCurrentItem(0);
-		viewPager.setOnPageChangeListener(onPageChangeListener);
-		viewPager.setAdapter(selectedPagerAdapter);
-		
-		ViewGroup group = (ViewGroup) headView.findViewById(R.id.viewGroup);// 初始化底部显示控件
-		tips = new ImageView[3];
-		for (int i = 0; i < tips.length; i++){
-			ImageView imageView = new ImageView(getActivity());
-			if (i == 0) {
-				imageView.setBackgroundResource(R.mipmap.page_indicator_focused);
-			} else {
-				imageView.setBackgroundResource(R.mipmap.page_indicator_unfocused);
-			}
-			
-			tips[i] = imageView;
-			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
-			layoutParams.leftMargin = 10;// 设置点点点view的左边距
-			layoutParams.rightMargin = 10;// 设置点点点view的右边距
-			group.addView(imageView, layoutParams);
-		}
-		
-		timer = new Timer(true);//初始化计时器
-		timer.schedule(task, 0, CAROUSEL_TIME);//延时0ms后执行,3000ms执行一次
-
-		selectedAdapter.setHeaderView(headView);
+		ptrClassicFrameLayout = (PtrClassicFrameLayout) rootView.findViewById(R.id.test_recycler_view_frame);
+		mRecyclerView = (RecyclerView) rootView.findViewById(R.id.test_recycler_view);
+		init();
 		return rootView;
 	}
 
+	private void init() {
+		adapter = new SelectedRecyclerAdapter(getActivity());
 
-	
+		mAdapter = new RecyclerAdapterWithHF(adapter);
+		mAdapter.addCarouse(initCarouselHead());
+
+		mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+		mRecyclerView.setAdapter(mAdapter);
+
+		ptrClassicFrameLayout.setLoadMoreEnable(true);//设置可以加载更多
+		ptrClassicFrameLayout.setPtrHandler(ptrDefaultHandler);//设置下拉监听
+		ptrClassicFrameLayout.setOnLoadMoreListener(onLoadMoreListener);//设置上拉监听
+	}
+
+	private PtrDefaultHandler ptrDefaultHandler=new PtrDefaultHandler() {
+		@Override
+		public void onRefreshBegin(PtrFrameLayout frame) {
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					page = 0;
+					adapter.getFirst();
+					mAdapter.notifyDataSetChanged();
+					ptrClassicFrameLayout.refreshComplete();
+				}
+			},700);
+		}
+	};
+
+	private OnLoadMoreListener onLoadMoreListener=new OnLoadMoreListener() {
+		@Override
+		public void loadMore() {
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					page++;
+					adapter.loadMore(page);//模拟数据
+					mAdapter.notifyDataSetChanged();
+					ptrClassicFrameLayout.loadMoreComplete(true);//下拉加载完毕
+					Toast.makeText(getActivity(), "load more complete", Toast.LENGTH_SHORT).show();
+				}
+			},1000);
+		}
+	};
+
 	private ICarousePagerSelectView carousePagerSelectView=new ICarousePagerSelectView() {
 		@Override
 		public void carouseSelect(int index) {
@@ -123,6 +144,43 @@ public class SelectedFragment extends Fragment{
 			}
 		};
 	};
+
+	//初始化
+	private View initCarouselHead(){
+		View headView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_selected_header,recyclerView,false);
+
+		tvContent=(TextView) headView.findViewById(R.id.tv_content);
+		tvContent.setText(carousePageStr[0]);
+
+		viewPager = (ViewPager)headView.findViewById(R.id.viewpager);
+		selectedPagerAdapter=new SelectedPagerAdapter(getActivity(),carousePagerSelectView);
+		viewPager.setOffscreenPageLimit(2);
+		viewPager.setCurrentItem(0);
+		viewPager.addOnPageChangeListener(onPageChangeListener);
+		viewPager.setAdapter(selectedPagerAdapter);
+
+		ViewGroup group = (ViewGroup) headView.findViewById(R.id.viewGroup);// 初始化底部显示控件
+		tips = new ImageView[3];
+		for (int i = 0; i < tips.length; i++){
+			ImageView imageView = new ImageView(getActivity());
+			if (i == 0) {
+				imageView.setBackgroundResource(R.mipmap.page_indicator_focused);
+			} else {
+				imageView.setBackgroundResource(R.mipmap.page_indicator_unfocused);
+			}
+
+			tips[i] = imageView;
+			LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT));
+			layoutParams.leftMargin = 10;// 设置点点点view的左边距
+			layoutParams.rightMargin = 10;// 设置点点点view的右边距
+			group.addView(imageView, layoutParams);
+		}
+
+		timer = new Timer(true);//初始化计时器
+		timer.schedule(task, 0, CAROUSEL_TIME);//延时0ms后执行,3000ms执行一次
+
+		return headView;
+	}
 	
 	@Override
 	public void onDestroy(){
