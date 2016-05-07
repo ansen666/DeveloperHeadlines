@@ -1,12 +1,16 @@
 # DeveloperHeadlines
 一步步带你实现开发者头条app
 
+
 先看效果图:
 
 ![一步步带你实现开发者头条app](https://github.com/privateworkemail/DeveloperHeadlines/blob/master/DeveloperHeadlines.gif)
 
 
+
+
 这个Demo能让你学到以下内容:
+
 [带你实现开发者头条(一) 启动页实现](http://blog.csdn.net/lowprofile_coding/article/details/51170252)
 
 [带你实现开发者头条(二) 实现左滑菜单](http://blog.csdn.net/lowprofile_coding/article/details/51186965)
