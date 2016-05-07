@@ -27,8 +27,9 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
 
     private List<View> mHeaders = new ArrayList<View>();
     private List<View> mFooters = new ArrayList<View>();
-    private List<View> mCarouse = new ArrayList<View>();
+    private List<View> mCarouse = new ArrayList<View>();//保存轮播View
 
+    //可以添加轮播View
     public void addCarouse(View view){
         mCarouse.add(view);
     }
@@ -118,9 +119,8 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
             prepareHeaderFooter((HeaderFooterViewHolder) vh, v);
         }else if(mCarouse.size()>0&&position==mHeaders.size()){//这个时候mHeaders.size()值为0
 //            System.out.println("有多少个头View:"+mHeaders.size()+"值等于多少:"+(mHeaders.size()-1));
-            View v = mCarouse.get(mHeaders.size());
+            View v = mCarouse.get(mHeaders.size());//取出轮播的View
             prepareHeaderFooter((HeaderFooterViewHolder) vh, v);
-//            TYPE_CAROUSE
         } else if (isFooter(position)) {
             View v = mFooters.get(position - getItemCountHF() - mHeaders.size());
             // add our view to a footer view and display it
@@ -158,7 +158,6 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
         // empty out our FrameLayout and replace with our header/footer
         vh.base.removeAllViews();
         vh.base.addView(view);
-
     }
 
     private boolean isHeader(int position) {
@@ -184,7 +183,8 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
         // order is headers > items > footers
         if (isHeader(position)) {
             return TYPE_HEADER;
-        } else if (mCarouse.size()>0&&mHeaders.size()==position) {
+
+        } else if (mCarouse.size()>0&&mHeaders.size()==position){ //判断集合个数&&position==0  这个时候mHeaders里面是没有值的
             return TYPE_CAROUSE;
         }else if (isFooter(position)) {
             return TYPE_FOOTER;

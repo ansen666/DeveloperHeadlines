@@ -273,8 +273,6 @@ public class PtrFrameLayout extends ViewGroup {
         switch (action) {
             case MotionEvent.ACTION_UP:
                 System.out.println("弹起...");
-//                movePos(1);
-//                return dispatchTouchEventSupper(e);
             case MotionEvent.ACTION_CANCEL:
                   System.out.println("取消...");
 //                if(pullRefresh){
@@ -306,7 +304,7 @@ public class PtrFrameLayout extends ViewGroup {
                 return dispatchTouchEventSupper(e);
             case MotionEvent.ACTION_MOVE:
                 System.out.println("移动...");
-                if(pullRefresh){
+                if(pullRefresh){//Toolbar显示
                     mLastMoveEvent = e;
                     mPtrIndicator.onMove(e.getX(), e.getY());
                     float offsetX = mPtrIndicator.getOffsetX();
@@ -336,13 +334,12 @@ public class PtrFrameLayout extends ViewGroup {
                     }
 
                     if ((moveUp && canMoveUp) || moveDown) {
-                        System.out.println("是否下拉刷新:"+pullRefresh+"偏移量是多少:"+offsetY);
+//                        System.out.println("是否下拉刷新:"+pullRefresh+"偏移量是多少:"+offsetY);
                         movePos(offsetY);
                         return true;
                     }
                 }
         }
-        System.out.println("dispatchTouchEvent");
         return dispatchTouchEventSupper(e);
     }
 

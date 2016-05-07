@@ -1,11 +1,8 @@
 package com.ansen.developerheadlines.fragment;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -26,7 +23,6 @@ import android.widget.Toast;
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.adapter.SelectedRecyclerAdapter;
 import com.ansen.developerheadlines.adapter.SelectedPagerAdapter;
-import com.ansen.developerheadlines.entity.SelectedArticle;
 import com.ansen.developerheadlines.iview.ICarousePagerSelectView;
 import com.chanven.lib.cptr.PtrClassicFrameLayout;
 import com.chanven.lib.cptr.PtrDefaultHandler;
@@ -52,15 +48,12 @@ public class SelectedFragment extends Fragment{
 	
 	private TextView tvContent;
 	private String[] carousePageStr=new String[]{"Android开发666","公众号:Ansen_666","Python 的练手项目有哪些值得推荐"};
-	
-	private RecyclerView recyclerView;
-	private SelectedRecyclerAdapter selectedAdapter;
 
-	PtrClassicFrameLayout ptrClassicFrameLayout;
-	RecyclerView mRecyclerView;
-	private SelectedRecyclerAdapter adapter;
+	private PtrClassicFrameLayout ptrClassicFrameLayout;
+	private RecyclerView mRecyclerView;
+	private SelectedRecyclerAdapter selectedAdapter;
 	private RecyclerAdapterWithHF mAdapter;
-	int page = 0;
+	private int page = 0;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState){
@@ -68,23 +61,26 @@ public class SelectedFragment extends Fragment{
 
 		ptrClassicFrameLayout = (PtrClassicFrameLayout) rootView.findViewById(R.id.test_recycler_view_frame);
 		mRecyclerView = (RecyclerView) rootView.findViewById(R.id.test_recycler_view);
+		mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 		init();
 		return rootView;
 	}
 
 	private void init() {
-		adapter = new SelectedRecyclerAdapter(getActivity());
-
-		mAdapter = new RecyclerAdapterWithHF(adapter);
+		//初始化适配器
+		selectedAdapter = new SelectedRecyclerAdapter(getActivity());
+		//对适配器进行封装
+		mAdapter = new RecyclerAdapterWithHF(selectedAdapter);
+		//把滚动Banner加入头部
 		mAdapter.addCarouse(initCarouselHead());
-
-		mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 		mRecyclerView.setAdapter(mAdapter);
 
-		ptrClassicFrameLayout.setLoadMoreEnable(true);//设置可以加载更多
 		ptrClassicFrameLayout.setPtrHandler(ptrDefaultHandler);//设置下拉监听
 		ptrClassicFrameLayout.setOnLoadMoreListener(onLoadMoreListener);//设置上拉监听
+
+		ptrClassicFrameLayout.setLoadMoreEnable(true);//设置可以加载更多
 	}
 
 	private PtrDefaultHandler ptrDefaultHandler=new PtrDefaultHandler() {
@@ -94,7 +90,7 @@ public class SelectedFragment extends Fragment{
 				@Override
 				public void run() {
 					page = 0;
-					adapter.getFirst();
+					selectedAdapter.getFirst();
 					mAdapter.notifyDataSetChanged();
 					ptrClassicFrameLayout.refreshComplete();
 				}
@@ -109,7 +105,7 @@ public class SelectedFragment extends Fragment{
 				@Override
 				public void run() {
 					page++;
-					adapter.loadMore(page);//模拟数据
+					selectedAdapter.loadMore(page);//模拟数据
 					mAdapter.notifyDataSetChanged();
 					ptrClassicFrameLayout.loadMoreComplete(true);//下拉加载完毕
 					Toast.makeText(getActivity(), "load more complete", Toast.LENGTH_SHORT).show();
@@ -147,7 +143,7 @@ public class SelectedFragment extends Fragment{
 
 	//初始化
 	private View initCarouselHead(){
-		View headView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_selected_header,recyclerView,false);
+		View headView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_selected_header,mRecyclerView,false);
 
 		tvContent=(TextView) headView.findViewById(R.id.tv_content);
 		tvContent.setText(carousePageStr[0]);
@@ -216,5 +212,7 @@ public class SelectedFragment extends Fragment{
 		}
 	}
 
-
+	public void setPullRefresh(boolean pullRefresh) {
+		ptrClassicFrameLayout.setPullRefresh(pullRefresh);
+	}
 }
