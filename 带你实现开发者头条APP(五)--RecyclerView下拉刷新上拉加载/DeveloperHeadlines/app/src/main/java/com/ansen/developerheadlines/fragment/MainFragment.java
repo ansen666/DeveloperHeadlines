@@ -55,7 +55,6 @@ public class MainFragment extends Fragment{
 		return rootView;
     }
 
-
 	private AppBarLayout.OnOffsetChangedListener onOffsetChangedListener=new AppBarLayout.OnOffsetChangedListener() {
 		@Override
 		public void onOffsetChanged(AppBarLayout appBarLayout, int i){
