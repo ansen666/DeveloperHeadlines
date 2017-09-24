@@ -4,7 +4,7 @@
 
 先看效果图:
 
-![一步步带你实现开发者头条app](https://github.com/privateworkemail/DeveloperHeadlines/blob/master/DeveloperHeadlines.gif)
+![一步步带你实现开发者头条app](https://raw.githubusercontent.com/ansen666/DeveloperHeadlines/master/DeveloperHeadlines.gif)
 
 
 
