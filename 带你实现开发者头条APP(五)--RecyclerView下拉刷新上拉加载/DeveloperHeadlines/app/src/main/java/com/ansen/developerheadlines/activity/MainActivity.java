@@ -2,7 +2,6 @@ package com.ansen.developerheadlines.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +12,6 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
 import com.ansen.developerheadlines.R;
-import com.ansen.developerheadlines.fragment.ContentFragment;
 import com.ansen.developerheadlines.fragment.GiftFragment;
 import com.ansen.developerheadlines.fragment.MainFragment;
 import com.ansen.developerheadlines.fragment.ShareFragment;
