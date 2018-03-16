@@ -22,5 +22,4 @@
             android:layout_height="match_parent"
             android:background="@android:color/white"/>
     </com.chanven.lib.cptr.PtrClassicFrameLayout>
-
 </LinearLayout>
