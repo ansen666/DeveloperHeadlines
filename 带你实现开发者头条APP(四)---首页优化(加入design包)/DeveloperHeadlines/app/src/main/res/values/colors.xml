@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_color">#54B0E9</color>
+    <color name="launcher_item_select">#54B0E9</color>
+    <color name="launcher_item_normal">#9B9B9B</color>
+    <color name="white_normal">#ffffffff</color>
+    <color name="split_line">#E7E7E7</color>
+    <color name="menu_left_item_select">#EEEEEE</color>
+    <color name="menu_left_item_text_select">#54B0E9</color>
+    <color name="menu_left_item_text_normal">#000000</color>
+    
+    <color name="main_title_text_select">#ffffffff</color>
+    <color name="main_title_text_normal">#bebebe</color>
+
+</resources>
