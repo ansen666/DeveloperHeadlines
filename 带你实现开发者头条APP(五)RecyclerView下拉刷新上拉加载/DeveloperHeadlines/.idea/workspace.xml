@@ -19,8 +19,8 @@
       <file leaf-file-name="RecyclerAdapterWithHF.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cptr/src/com/chanven/lib/cptr/recyclerview/RecyclerAdapterWithHF.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+            <state relative-caret-position="192">
+              <caret line="140" column="28" lean-forward="true" selection-start-line="140" selection-start-column="28" selection-end-line="140" selection-end-column="28" />
               <folding>
                 <element signature="e#3066#3634#0" expanded="true" />
                 <element signature="e#3066#3634#0" expanded="true" />
@@ -52,7 +52,6 @@
                 <element signature="e#4810#4811#0" expanded="true" />
                 <element signature="e#5020#5409#0" expanded="true" />
                 <element signature="e#5020#5409#0" expanded="true" />
-                <element signature="e#5107#5300#1" expanded="true" />
                 <element signature="e#5313#5343#0" expanded="true" />
                 <element signature="e#5313#5343#0" expanded="true" />
                 <element signature="e#5357#5398#0" expanded="true" />
@@ -2895,8 +2894,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cptr/src/com/chanven/lib/cptr/recyclerview/RecyclerAdapterWithHF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+        <state relative-caret-position="192">
+          <caret line="140" column="28" lean-forward="true" selection-start-line="140" selection-start-column="28" selection-end-line="140" selection-end-column="28" />
           <folding>
             <element signature="e#3066#3634#0" expanded="true" />
             <element signature="e#3066#3634#0" expanded="true" />
@@ -2928,7 +2927,6 @@
             <element signature="e#4810#4811#0" expanded="true" />
             <element signature="e#5020#5409#0" expanded="true" />
             <element signature="e#5020#5409#0" expanded="true" />
-            <element signature="e#5107#5300#1" expanded="true" />
             <element signature="e#5313#5343#0" expanded="true" />
             <element signature="e#5313#5343#0" expanded="true" />
             <element signature="e#5357#5398#0" expanded="true" />
