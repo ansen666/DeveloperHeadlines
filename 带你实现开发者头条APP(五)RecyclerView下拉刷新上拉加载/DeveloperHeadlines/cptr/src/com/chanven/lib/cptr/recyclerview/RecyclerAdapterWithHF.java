@@ -93,18 +93,15 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
         return mAdapter.onCreateViewHolder(viewGroup, type);
     }
 
-    @Override
     public final RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
-        // if our position is one of our items (this comes from
-        // getItemViewType(int position) below)
+        //正常Item
         if (type != TYPE_HEADER && type != TYPE_FOOTER && type != TYPE_CAROUSE) {
             ViewHolder vh = onCreateViewHolderHF(viewGroup, type);
             return vh;
-            // else we have a header/footer
-        } else {
-            // create a new framelayout, or inflate from a resource
+        } else {//header/footer或者轮播图
+            //创建FrameLayout
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            // make sure it fills the space
+            //FrameLayout设置LayoutParams，宽高都匹配父类
             frameLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
             return new HeaderFooterViewHolder(frameLayout);
         }
@@ -112,23 +109,21 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public final void onBindViewHolder(final RecyclerView.ViewHolder vh, int position){
-        // check what type of view our position is
-        if (isHeader(position)) {
+        // 检查当前下标是什么类型数据
+        if (isHeader(position)){//header类型
             View v = mHeaders.get(position);
-            // add our view to a header view and display it
-            prepareHeaderFooter((HeaderFooterViewHolder) vh, v);
-        }else if(mCarouse.size()>0&&position==mHeaders.size()){//这个时候mHeaders.size()值为0
+            prepareHeaderFooter((HeaderFooterViewHolder) vh, v);//显示header类型
+        }else if(mCarouse.size()>0&&position==mHeaders.size()){//轮播图类型
 //            System.out.println("有多少个头View:"+mHeaders.size()+"值等于多少:"+(mHeaders.size()-1));
             View v = mCarouse.get(mHeaders.size());//取出轮播的View
-            prepareHeaderFooter((HeaderFooterViewHolder) vh, v);
-        } else if (isFooter(position)) {
+            prepareHeaderFooter((HeaderFooterViewHolder) vh, v);//显示轮播图类型
+        } else if (isFooter(position)) {//footer类型
             View v = mFooters.get(position - getItemCountHF() - mHeaders.size());
-            // add our view to a footer view and display it
-            prepareHeaderFooter((HeaderFooterViewHolder) vh, v);
+            prepareHeaderFooter((HeaderFooterViewHolder) vh, v);//显示footer类型
         } else {
             vh.itemView.setOnClickListener(new MyOnClickListener(vh));
             vh.itemView.setOnLongClickListener(new MyOnLongClickListener(vh));
-            // it's one of our items, display as required
+            //正常的Item显示
             onBindViewHolderHF(vh, getRealPosition(position));
         }
     }
@@ -142,20 +137,18 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     private void prepareHeaderFooter(HeaderFooterViewHolder vh, View view) {
-        // if it's a staggered grid, span the whole layout
-        if (mManagerType == TYPE_MANAGER_STAGGERED_GRID) {
+        if (mManagerType == TYPE_MANAGER_STAGGERED_GRID) {//如果瀑布流 重新设置LayoutParams
             StaggeredGridLayoutManager.LayoutParams layoutParams = new StaggeredGridLayoutManager.LayoutParams
-					(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                    (ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutParams.setFullSpan(true);
             vh.itemView.setLayoutParams(layoutParams);
         }
 
-        // if the view already belongs to another layout, remove it
         if (view.getParent() != null) {
             ((ViewGroup) view.getParent()).removeView(view);
         }
 
-        // empty out our FrameLayout and replace with our header/footer
+        //清除FrameLayout所有子View，然后添加header/footer
         vh.base.removeAllViews();
         vh.base.addView(view);
     }
@@ -184,7 +177,7 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
         if (isHeader(position)) {
             return TYPE_HEADER;
 
-        } else if (mCarouse.size()>0&&mHeaders.size()==position){ //判断集合个数&&position==0  这个时候mHeaders里面是没有值的
+        } else if (mCarouse.size()>0&&mHeaders.size()==position){ //判断集合个数&&position==0，这时mHeaders中还没有值
             return TYPE_CAROUSE;
         }else if (isFooter(position)) {
             return TYPE_FOOTER;
@@ -195,6 +188,7 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
         }
         return type;
     }
+
 
     public int getItemViewTypeHF(int position) {
         return mAdapter.getItemViewType(position);

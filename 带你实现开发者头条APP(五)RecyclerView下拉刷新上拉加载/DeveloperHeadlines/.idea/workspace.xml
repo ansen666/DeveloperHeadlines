@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config />
-    </shared>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="003d106d-21a6-4b8a-8330-1c52bf5f35ed" name="Default" comment="" />
+    <list default="true" id="b1f2ad82-967a-4cd1-8f6f-e8a633d9e123" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,40 +16,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ansen/developerheadlines/fragment/MainFragment.java">
+      <file leaf-file-name="RecyclerAdapterWithHF.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cptr/src/com/chanven/lib/cptr/recyclerview/RecyclerAdapterWithHF.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state relative-caret-position="267">
+              <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
               <folding>
-                <element signature="e#2608#2802#0" expanded="true" />
-                <element signature="e#2801#2802#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ansen/developerheadlines/activity/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="79" column="6" lean-forward="false" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
-              <folding>
-                <element signature="e#1994#2773#0" expanded="true" />
-                <element signature="e#2772#2773#0" expanded="true" />
-                <element signature="e#5310#5451#0" expanded="true" />
-                <element signature="e#5450#5451#0" expanded="true" />
+                <element signature="e#3066#3634#0" expanded="true" />
+                <element signature="e#3066#3634#0" expanded="true" />
+                <element signature="e#3152#3206#1" expanded="true" />
+                <element signature="e#3307#3373#1" expanded="true" />
+                <element signature="e#3349#3371#0" expanded="true" />
+                <element signature="e#3434#3563#0" expanded="true" />
+                <element signature="e#3434#3563#0" expanded="true" />
+                <element signature="e#3824#3856#1" expanded="true" />
+                <element signature="e#3833#3855#0" expanded="true" />
+                <element signature="e#3833#3855#0" expanded="true" />
+                <element signature="e#3889#3916#0" expanded="true" />
+                <element signature="e#4110#4149#0" expanded="true" />
+                <element signature="e#4119#4148#0" expanded="true" />
+                <element signature="e#4119#4148#0" expanded="true" />
+                <element signature="e#4193#4220#0" expanded="true" />
+                <element signature="e#4250#4708#0" expanded="true" />
+                <element signature="e#4250#4708#0" expanded="true" />
+                <element signature="e#4298#4367#1" expanded="true" />
+                <element signature="e#4307#4366#0" expanded="true" />
+                <element signature="e#4331#4347#0" expanded="true" />
+                <element signature="e#4307#4366#0" expanded="true" />
+                <element signature="e#4400#4427#0" expanded="true" />
+                <element signature="e#4474#4531#0" expanded="true" />
+                <element signature="e#4474#4531#0" expanded="true" />
+                <element signature="e#4545#4610#0" expanded="true" />
+                <element signature="e#4545#4610#0" expanded="true" />
+                <element signature="e#4761#4762#0" expanded="true" />
+                <element signature="e#4810#4811#0" expanded="true" />
+                <element signature="e#5020#5409#0" expanded="true" />
+                <element signature="e#5020#5409#0" expanded="true" />
+                <element signature="e#5107#5300#1" expanded="true" />
+                <element signature="e#5313#5343#0" expanded="true" />
+                <element signature="e#5313#5343#0" expanded="true" />
+                <element signature="e#5357#5398#0" expanded="true" />
+                <element signature="e#5357#5398#0" expanded="true" />
+                <element signature="e#5419#5521#0" expanded="true" />
+                <element signature="e#5423#5439#0" expanded="true" />
+                <element signature="e#5419#5521#0" expanded="true" />
+                <element signature="e#5463#5493#0" expanded="true" />
+                <element signature="e#5476#5492#0" expanded="true" />
+                <element signature="e#5463#5493#0" expanded="true" />
+                <element signature="e#5687#5688#0" expanded="true" />
+                <element signature="e#5738#5739#0" expanded="true" />
+                <element signature="e#5832#5848#0" expanded="true" />
+                <element signature="e#5908#5909#0" expanded="true" />
+                <element signature="e#5943#5959#0" expanded="true" />
+                <element signature="e#5983#5984#0" expanded="true" />
+                <element signature="e#6018#6019#0" expanded="true" />
+                <element signature="e#6035#6058#0" expanded="true" />
+                <element signature="e#6064#6065#0" expanded="true" />
+                <element signature="e#6265#6542#0" expanded="true" />
+                <element signature="e#6265#6542#0" expanded="true" />
+                <element signature="e#6475#6542#0" expanded="true" />
+                <element signature="e#6475#6542#0" expanded="true" />
+                <element signature="e#6551#6607#1" expanded="true" />
+                <element signature="e#6616#6810#0" expanded="true" />
+                <element signature="e#6616#6810#0" expanded="true" />
+                <element signature="e#6736#6798#0" expanded="true" />
+                <element signature="e#6736#6798#0" expanded="true" />
+                <element signature="e#6736#6798#0" expanded="true" />
+                <element signature="e#6736#6798#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>MainDrawerListener</find>
-    </findStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
@@ -2020,6 +2054,7 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/a7111830132c7f87d08fe48cb0ca07630f8cb91c/asm-commons-5.0.3.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-gradle/5.2.1/3c40c65126d6ec2289e8ca46aca7cdb5f818e545/proguard-gradle-5.2.1-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-gradle/5.2.1/5e9956c050fd84fa043517e77c4c0ff175a6b002/proguard-gradle-5.2.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacoco/org.jacoco.core/0.7.4.201502262128/b6356a696e396a348a673237eee1f496ef75b4b1/org.jacoco.core-0.7.4.201502262128-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacoco/org.jacoco.core/0.7.4.201502262128/31482f50411a3a5769b6c78fa9b97ba731c205e7/org.jacoco.core-0.7.4.201502262128.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr/3.5.2/92c9bde32f0b1092507701b2b302af84534eb9b8/antlr-3.5.2-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr/3.5.2/c4a65c950bfc3e7d04309c515b2177c00baf7764/antlr-3.5.2.jar" />
@@ -2140,6 +2175,7 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/a7111830132c7f87d08fe48cb0ca07630f8cb91c/asm-commons-5.0.3.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-gradle/5.2.1/3c40c65126d6ec2289e8ca46aca7cdb5f818e545/proguard-gradle-5.2.1-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-gradle/5.2.1/5e9956c050fd84fa043517e77c4c0ff175a6b002/proguard-gradle-5.2.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacoco/org.jacoco.core/0.7.4.201502262128/b6356a696e396a348a673237eee1f496ef75b4b1/org.jacoco.core-0.7.4.201502262128-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacoco/org.jacoco.core/0.7.4.201502262128/31482f50411a3a5769b6c78fa9b97ba731c205e7/org.jacoco.core-0.7.4.201502262128.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr/3.5.2/92c9bde32f0b1092507701b2b302af84534eb9b8/antlr-3.5.2-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr/3.5.2/c4a65c950bfc3e7d04309c515b2177c00baf7764/antlr-3.5.2.jar" />
@@ -2260,6 +2296,7 @@
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/5.0.3/a7111830132c7f87d08fe48cb0ca07630f8cb91c/asm-commons-5.0.3.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-gradle/5.2.1/3c40c65126d6ec2289e8ca46aca7cdb5f818e545/proguard-gradle-5.2.1-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sf.proguard/proguard-gradle/5.2.1/5e9956c050fd84fa043517e77c4c0ff175a6b002/proguard-gradle-5.2.1.jar" />
+                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacoco/org.jacoco.core/0.7.4.201502262128/b6356a696e396a348a673237eee1f496ef75b4b1/org.jacoco.core-0.7.4.201502262128-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jacoco/org.jacoco.core/0.7.4.201502262128/31482f50411a3a5769b6c78fa9b97ba731c205e7/org.jacoco.core-0.7.4.201502262128.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr/3.5.2/92c9bde32f0b1092507701b2b302af84534eb9b8/antlr-3.5.2-sources.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.antlr/antlr/3.5.2/c4a65c950bfc3e7d04309c515b2177c00baf7764/antlr-3.5.2.jar" />
@@ -2494,12 +2531,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ansen/developerheadlines/fragment/MainFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ansen/developerheadlines/activity/MainActivity.java" />
+        <option value="$PROJECT_DIR$/cptr/src/com/chanven/lib/cptr/recyclerview/RecyclerAdapterWithHF.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="26" />
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="777" />
@@ -2548,7 +2585,9 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2594,29 +2633,33 @@
             <path>
               <item name="DeveloperHeadlines" type="b2602c69:ProjectViewProjectNode" />
               <item name="DeveloperHeadlines" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="developerheadlines" type="462c0819:PsiDirectoryNode" />
-              <item name="activity" type="462c0819:PsiDirectoryNode" />
+              <item name="cptr" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="DeveloperHeadlines" type="b2602c69:ProjectViewProjectNode" />
               <item name="DeveloperHeadlines" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cptr" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="developerheadlines" type="462c0819:PsiDirectoryNode" />
-              <item name="fragment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeveloperHeadlines" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeveloperHeadlines" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cptr" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cptr" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeveloperHeadlines" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeveloperHeadlines" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="cptr" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="cptr" type="462c0819:PsiDirectoryNode" />
+              <item name="recyclerview" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2799,11 +2842,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="003d106d-21a6-4b8a-8330-1c52bf5f35ed" name="Default" comment="" />
-      <created>1528806067044</created>
+      <changelist id="b1f2ad82-967a-4cd1-8f6f-e8a633d9e123" name="Default" comment="" />
+      <created>1533561741323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1528806067044</updated>
+      <updated>1533561741323</updated>
     </task>
     <servers />
   </component>
@@ -2850,26 +2893,72 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ansen/developerheadlines/fragment/MainFragment.java">
+    <entry file="file://$PROJECT_DIR$/cptr/src/com/chanven/lib/cptr/recyclerview/RecyclerAdapterWithHF.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="267">
+          <caret line="145" column="0" lean-forward="true" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
-            <element signature="e#2608#2802#0" expanded="true" />
-            <element signature="e#2801#2802#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ansen/developerheadlines/activity/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="79" column="6" lean-forward="false" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
-          <folding>
-            <element signature="e#1994#2773#0" expanded="true" />
-            <element signature="e#2772#2773#0" expanded="true" />
-            <element signature="e#5310#5451#0" expanded="true" />
-            <element signature="e#5450#5451#0" expanded="true" />
+            <element signature="e#3066#3634#0" expanded="true" />
+            <element signature="e#3066#3634#0" expanded="true" />
+            <element signature="e#3152#3206#1" expanded="true" />
+            <element signature="e#3307#3373#1" expanded="true" />
+            <element signature="e#3349#3371#0" expanded="true" />
+            <element signature="e#3434#3563#0" expanded="true" />
+            <element signature="e#3434#3563#0" expanded="true" />
+            <element signature="e#3824#3856#1" expanded="true" />
+            <element signature="e#3833#3855#0" expanded="true" />
+            <element signature="e#3833#3855#0" expanded="true" />
+            <element signature="e#3889#3916#0" expanded="true" />
+            <element signature="e#4110#4149#0" expanded="true" />
+            <element signature="e#4119#4148#0" expanded="true" />
+            <element signature="e#4119#4148#0" expanded="true" />
+            <element signature="e#4193#4220#0" expanded="true" />
+            <element signature="e#4250#4708#0" expanded="true" />
+            <element signature="e#4250#4708#0" expanded="true" />
+            <element signature="e#4298#4367#1" expanded="true" />
+            <element signature="e#4307#4366#0" expanded="true" />
+            <element signature="e#4331#4347#0" expanded="true" />
+            <element signature="e#4307#4366#0" expanded="true" />
+            <element signature="e#4400#4427#0" expanded="true" />
+            <element signature="e#4474#4531#0" expanded="true" />
+            <element signature="e#4474#4531#0" expanded="true" />
+            <element signature="e#4545#4610#0" expanded="true" />
+            <element signature="e#4545#4610#0" expanded="true" />
+            <element signature="e#4761#4762#0" expanded="true" />
+            <element signature="e#4810#4811#0" expanded="true" />
+            <element signature="e#5020#5409#0" expanded="true" />
+            <element signature="e#5020#5409#0" expanded="true" />
+            <element signature="e#5107#5300#1" expanded="true" />
+            <element signature="e#5313#5343#0" expanded="true" />
+            <element signature="e#5313#5343#0" expanded="true" />
+            <element signature="e#5357#5398#0" expanded="true" />
+            <element signature="e#5357#5398#0" expanded="true" />
+            <element signature="e#5419#5521#0" expanded="true" />
+            <element signature="e#5423#5439#0" expanded="true" />
+            <element signature="e#5419#5521#0" expanded="true" />
+            <element signature="e#5463#5493#0" expanded="true" />
+            <element signature="e#5476#5492#0" expanded="true" />
+            <element signature="e#5463#5493#0" expanded="true" />
+            <element signature="e#5687#5688#0" expanded="true" />
+            <element signature="e#5738#5739#0" expanded="true" />
+            <element signature="e#5832#5848#0" expanded="true" />
+            <element signature="e#5908#5909#0" expanded="true" />
+            <element signature="e#5943#5959#0" expanded="true" />
+            <element signature="e#5983#5984#0" expanded="true" />
+            <element signature="e#6018#6019#0" expanded="true" />
+            <element signature="e#6035#6058#0" expanded="true" />
+            <element signature="e#6064#6065#0" expanded="true" />
+            <element signature="e#6265#6542#0" expanded="true" />
+            <element signature="e#6265#6542#0" expanded="true" />
+            <element signature="e#6475#6542#0" expanded="true" />
+            <element signature="e#6475#6542#0" expanded="true" />
+            <element signature="e#6551#6607#1" expanded="true" />
+            <element signature="e#6616#6810#0" expanded="true" />
+            <element signature="e#6616#6810#0" expanded="true" />
+            <element signature="e#6736#6798#0" expanded="true" />
+            <element signature="e#6736#6798#0" expanded="true" />
+            <element signature="e#6736#6798#0" expanded="true" />
+            <element signature="e#6736#6798#0" expanded="true" />
           </folding>
         </state>
       </provider>
