@@ -194,7 +194,7 @@ public class SelectedFragment extends Fragment {
 		}
 	}
 
-//	public void setPullRefresh(boolean pullRefresh) {
-//		prl.setRefreshEnable(pullRefresh);
-//	}
+	public void setPullRefresh(boolean pullRefresh) {
+		prl.setRefreshEnable(pullRefresh);
+	}
 }

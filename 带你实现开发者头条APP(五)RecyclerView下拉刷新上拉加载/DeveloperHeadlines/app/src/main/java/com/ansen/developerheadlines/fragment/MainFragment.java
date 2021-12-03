@@ -32,7 +32,7 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, null);
 
-        vPager = (ViewPager) rootView.findViewById(R.id.viewPager);
+        vPager =  rootView.findViewById(R.id.viewPager);
         vPager.setOffscreenPageLimit(2);
         vPager.setCurrentItem(0);
 

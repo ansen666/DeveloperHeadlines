@@ -43,10 +43,10 @@ public class LauncherActivity extends FragmentActivity implements ILauncherView 
 		adapter = new LauncherPagerAdapter(this, this);
 		viewpagerLauncher.setOffscreenPageLimit(2);
 		viewpagerLauncher.setCurrentItem(0);
-		viewpagerLauncher.setOnPageChangeListener(changeListener);
+		viewpagerLauncher.addOnPageChangeListener(changeListener);
 		viewpagerLauncher.setAdapter(adapter);
-		viewpagerLauncher.setOnPageChangeListener(changeListener);
-		ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup);// 初始化底部显示控件
+		viewpagerLauncher.addOnPageChangeListener(changeListener);
+		ViewGroup group = findViewById(R.id.viewGroup);// 初始化底部显示控件
 		tips = new ImageView[4];
 		for (int i = 0; i < tips.length; i++) {
 			ImageView imageView = new ImageView(this);
