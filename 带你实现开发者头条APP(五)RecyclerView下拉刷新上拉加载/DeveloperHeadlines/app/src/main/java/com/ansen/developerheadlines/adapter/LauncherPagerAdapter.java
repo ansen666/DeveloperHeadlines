@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.ansen.developerheadlines.R;
 
@@ -18,7 +18,7 @@ import com.ansen.developerheadlines.R;
  * @author ansen
  * @create time 2016-04-15
  */
-public class LauncherPagerAdapter extends PagerAdapter{
+public class LauncherPagerAdapter extends PagerAdapter {
 	private List<View> views;
 
 	//每页显示的图片

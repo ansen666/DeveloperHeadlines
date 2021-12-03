@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.iview.ILauncherView;
@@ -28,12 +28,12 @@ public class LauncherPagerAdapter extends PagerAdapter implements OnClickListene
 	private int[] images=new int[]{R.mipmap.tutorial_1,R.mipmap.tutorial_2,R.mipmap.tutorial_3,R.mipmap.tutorial_4};
 	
 	public LauncherPagerAdapter(Context context,ILauncherView launcherView){
-		views=new ArrayList<View>();
+		views=new ArrayList<>();
 		this.launcherView=launcherView;
 		//初始化每页显示的View
 		for(int i=0;i<images.length;i++){
 			View item=LayoutInflater.from(context).inflate(R.layout.activity_luancher_pager_item, null);
-			ImageView imageview=(ImageView) item.findViewById(R.id.imageview);
+			ImageView imageview=item.findViewById(R.id.imageview);
 			imageview.setImageResource(images[i]);
 			item.findViewById(R.id.tv_start_headlines).setOnClickListener(this);
 			views.add(item);
@@ -56,12 +56,12 @@ public class LauncherPagerAdapter extends PagerAdapter implements OnClickListene
 	
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object){
-		((ViewPager) container).removeView(views.get(position));
+		container.removeView(views.get(position));
 	}
 
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
-		((ViewPager) container).addView(views.get(position), 0);
+		container.addView(views.get(position), 0);
 		return views.get(position);
 	}
 

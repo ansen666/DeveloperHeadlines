@@ -4,15 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.adapter.LauncherPagerAdapter;
@@ -40,7 +40,7 @@ public class LauncherActivity extends FragmentActivity implements ILauncherView 
 		if(!isFirst()){
 			gotoMain();
 		}
-		viewpagerLauncher = (ViewPager) findViewById(R.id.viewpager_launcher);
+		viewpagerLauncher = findViewById(R.id.viewpager_launcher);
 		adapter = new LauncherPagerAdapter(this, this);
 		viewpagerLauncher.setOffscreenPageLimit(2);
 		viewpagerLauncher.setCurrentItem(0);
@@ -63,7 +63,7 @@ public class LauncherActivity extends FragmentActivity implements ILauncherView 
 		}
 	}
 
-	private OnPageChangeListener changeListener = new OnPageChangeListener() {
+	private ViewPager.OnPageChangeListener changeListener = new ViewPager.OnPageChangeListener() {
 		@Override
 		public void onPageScrollStateChanged(int arg0) {}
 		@Override

@@ -3,19 +3,18 @@ package com.chanven.lib.cptr.recyclerview;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.AdapterDataObserver;
-import android.support.v7.widget.RecyclerView.ViewHolder;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
     public static final int TYPE_MANAGER_OTHER = 0;
     public static final int TYPE_MANAGER_LINEAR = 1;
     public static final int TYPE_MANAGER_GRID = 2;
@@ -27,7 +26,7 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
 
     private List<View> mHeaders = new ArrayList<View>();
     private List<View> mFooters = new ArrayList<View>();
-    private List<View> mCarouse = new ArrayList<View>();//保存轮播View
+    private List<View> mCarouse = new ArrayList<>();//保存轮播View
 
     //可以添加轮播View
     public void addCarouse(View view){
@@ -96,7 +95,7 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
     public final RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int type) {
         //正常Item
         if (type != TYPE_HEADER && type != TYPE_FOOTER && type != TYPE_CAROUSE) {
-            ViewHolder vh = onCreateViewHolderHF(viewGroup, type);
+            RecyclerView.ViewHolder vh = onCreateViewHolderHF(viewGroup, type);
             return vh;
         } else {//header/footer或者轮播图
             //创建FrameLayout
@@ -280,9 +279,9 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     private class MyOnLongClickListener implements OnLongClickListener {
-        private ViewHolder vh;
+        private RecyclerView.ViewHolder vh;
 
-        public MyOnLongClickListener(ViewHolder vh) {
+        public MyOnLongClickListener(RecyclerView.ViewHolder vh) {
             super();
             this.vh = vh;
         }
@@ -307,22 +306,22 @@ public class RecyclerAdapterWithHF extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     public static interface OnItemClickListener {
-        void onItemClick(RecyclerAdapterWithHF adapter, ViewHolder vh, int position);
+        void onItemClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position);
     }
 
     public static interface OnItemLongClickListener {
-        void onItemLongClick(RecyclerAdapterWithHF adapter, ViewHolder vh, int position);
+        void onItemLongClick(RecyclerAdapterWithHF adapter, RecyclerView.ViewHolder vh, int position);
     }
 
-    private RecyclerView.Adapter<ViewHolder> mAdapter;
+    private RecyclerView.Adapter<RecyclerView.ViewHolder> mAdapter;
 
-    public RecyclerAdapterWithHF(RecyclerView.Adapter<ViewHolder> adapter) {
+    public RecyclerAdapterWithHF(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
         super();
         this.mAdapter = adapter;
         adapter.registerAdapterDataObserver(adapterDataObserver);
     }
 
-    private AdapterDataObserver adapterDataObserver = new AdapterDataObserver() {
+    private RecyclerView.AdapterDataObserver adapterDataObserver = new RecyclerView.AdapterDataObserver() {
         @Override
         public void onChanged() {
             notifyDataSetChanged();

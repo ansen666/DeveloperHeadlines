@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.adapter.LauncherPagerAdapter;
@@ -22,7 +22,7 @@ import com.ansen.developerheadlines.adapter.LauncherPagerAdapter;
  * @author Ansen
  * @create time 2016-04-15
  */
-public class LauncherActivity extends FragmentActivity{
+public class LauncherActivity extends FragmentActivity {
 	private ViewPager viewPager;
 	private LauncherPagerAdapter adapter;
 
@@ -39,15 +39,15 @@ public class LauncherActivity extends FragmentActivity{
 			gotoMain();
 		}
 
-		tvStartHeadlines= (TextView) findViewById(R.id.tv_start_headlines);
+		tvStartHeadlines= findViewById(R.id.tv_start_headlines);
 		tvStartHeadlines.setOnClickListener(onClickListener);
 
-		viewPager = (ViewPager) findViewById(R.id.viewpager_launcher);
+		viewPager = findViewById(R.id.viewpager);
 		viewPager.setOffscreenPageLimit(2);//设置缓存页数
 		viewPager.setAdapter(adapter = new LauncherPagerAdapter(this));//设置适配器
-		viewPager.setOnPageChangeListener(changeListener);//页面监听
+		viewPager.addOnPageChangeListener(changeListener);//页面监听
 
-		ViewGroup group = (ViewGroup) findViewById(R.id.viewGroup);//初始化底部显示控件
+		ViewGroup group = findViewById(R.id.viewGroup);//初始化底部显示控件
 		tips = new ImageView[4];
 		for (int i = 0; i < tips.length; i++) {
 			ImageView imageView = new ImageView(this);
@@ -64,7 +64,7 @@ public class LauncherActivity extends FragmentActivity{
 		}
 	}
 
-	private OnPageChangeListener changeListener = new OnPageChangeListener() {
+	private ViewPager.OnPageChangeListener changeListener = new ViewPager.OnPageChangeListener() {
 		@Override
 		public void onPageScrollStateChanged(int arg0) {}
 		@Override

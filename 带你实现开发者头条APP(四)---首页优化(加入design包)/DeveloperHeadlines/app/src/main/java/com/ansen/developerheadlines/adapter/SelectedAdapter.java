@@ -3,13 +3,12 @@ package com.ansen.developerheadlines.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.entity.SelectedArticle;
@@ -99,9 +98,10 @@ public class SelectedAdapter extends RecyclerView.Adapter<SelectedAdapter.Select
             super(view);
             if(itemView == mHeaderView)
                 return;
-            title = (TextView) view.findViewById(R.id.tv_title);
-            like = (TextView) view.findViewById(R.id.tv_like);
-            comment = (TextView) view.findViewById(R.id.tv_comment);
+
+            title = view.findViewById(R.id.tv_title);
+            like = view.findViewById(R.id.tv_like);
+            comment = view.findViewById(R.id.tv_comment);
         }
     }
 

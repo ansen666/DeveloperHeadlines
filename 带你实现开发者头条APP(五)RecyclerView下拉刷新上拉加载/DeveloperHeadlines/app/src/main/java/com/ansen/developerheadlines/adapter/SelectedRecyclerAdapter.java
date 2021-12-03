@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.entity.SelectedArticle;
@@ -18,68 +19,68 @@ import com.ansen.developerheadlines.entity.SelectedArticle;
  *
  * @author ansen
  */
-public class SelectedRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<SelectedArticle> selectedArticles;
+public class SelectedRecyclerAdapter extends RecyclerView.Adapter<SelectedRecyclerAdapter.ViewHolder> {
+    private List<SelectedArticle> list;
     private LayoutInflater inflater;
 
     public SelectedRecyclerAdapter(Context context) {
         super();
         inflater = LayoutInflater.from(context);
 
-        selectedArticles = new ArrayList<SelectedArticle>();
+        list = new ArrayList<>();
         initData();
     }
 
     private void initData() {
         for (int i = 0; i < 10; i++) {
             SelectedArticle selectedArticle = new SelectedArticle(i, "Android开发666", i, i, "");
-            selectedArticles.add(selectedArticle);
+            list.add(selectedArticle);
         }
     }
 
     public void loadMore(int page) {
         for (int i = 0; i < 5; i++) {
             SelectedArticle selectedArticle = new SelectedArticle(i, "第" + page + "页数据", i, i, "");
-            selectedArticles.add(selectedArticle);
+            list.add(selectedArticle);
         }
     }
 
     public void getFirst() {
-        selectedArticles.clear();
+        list.clear();
         initData();
     }
 
+
     @Override
-    public int getItemCount() {
-        return selectedArticles.size();
+    public SelectedRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup viewHolder, int position) {
+        View view = inflater.inflate(R.layout.fragment_selected_item, null);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
-        SelectedRecyclerHolder holder = (SelectedRecyclerHolder) viewHolder;
-
-        SelectedArticle selectedArticle = selectedArticles.get(position);
+    public void onBindViewHolder(SelectedRecyclerAdapter.ViewHolder holder, int position) {
+        SelectedArticle selectedArticle = list.get(position);
         holder.title.setText(selectedArticle.getTitle());
         holder.like.setText("" + selectedArticle.getLikeNumber());
         holder.comment.setText("" + selectedArticle.getCommentNumber());
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewHolder, int position) {
-        View view = inflater.inflate(R.layout.fragment_selected_item, null);
-        return new SelectedRecyclerHolder(view);
+    public int getItemCount() {
+        return list.size();
     }
 
-    public class SelectedRecyclerHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView title;
         private TextView like;
         private TextView comment;
 
-        public SelectedRecyclerHolder(View view) {
+        public ViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.tv_title);
-            like = (TextView) view.findViewById(R.id.tv_like);
-            comment = (TextView) view.findViewById(R.id.tv_comment);
+
+            title =  view.findViewById(R.id.tv_title);
+            like =  view.findViewById(R.id.tv_like);
+            comment =  view.findViewById(R.id.tv_comment);
         }
     }
 }

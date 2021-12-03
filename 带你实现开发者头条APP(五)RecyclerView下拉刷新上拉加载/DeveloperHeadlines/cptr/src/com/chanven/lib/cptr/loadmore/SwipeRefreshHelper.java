@@ -1,9 +1,10 @@
 package com.chanven.lib.cptr.loadmore;
 
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AbsListView;
+
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.lang.reflect.Field;
 
@@ -12,7 +13,6 @@ import java.lang.reflect.Field;
  * Created by Chanven on 2015-11-4.
  */
 public class SwipeRefreshHelper {
-
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private View mContentView;
 

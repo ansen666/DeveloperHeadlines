@@ -1,11 +1,12 @@
 package com.chanven.lib.cptr.loadmore;
 
 import android.content.Context;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 
@@ -52,7 +53,7 @@ public class RecyclerViewHandler implements ViewHandler {
         }
 
         @Override
-        public void onScrollStateChanged(android.support.v7.widget.RecyclerView recyclerView, int newState) {
+        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             if (newState == RecyclerView.SCROLL_STATE_IDLE && isScollBottom(recyclerView)) {
                 if (onScrollBottomListener != null) {
                     onScrollBottomListener.onScorllBootom();//滚动到底部
@@ -78,7 +79,7 @@ public class RecyclerViewHandler implements ViewHandler {
         }
 
         @Override
-        public void onScrolled(android.support.v7.widget.RecyclerView recyclerView, int dx, int dy) {
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 
         }
 

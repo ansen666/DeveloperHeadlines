@@ -1,22 +1,20 @@
 package com.ansen.developerheadlines.fragment;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.activity.MainActivity;
 import com.ansen.developerheadlines.adapter.FragmentAdapter;
+import com.google.android.material.tabs.TabLayout;
 
-public class MainFragment extends Fragment{
+public class MainFragment extends Fragment {
 	private ViewPager vPager;
 
 	private MainActivity.MainDrawerListener drawerListener;
@@ -46,10 +44,10 @@ public class MainFragment extends Fragment{
 
 		vPager.setAdapter(pagerAdapter);
 
-		TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabLayout);
+		TabLayout tabLayout = rootView.findViewById(R.id.tabLayout);
 		tabLayout.setupWithViewPager(vPager);
 
-		Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+		Toolbar toolbar = rootView.findViewById(R.id.toolbar);
 		toolbar.inflateMenu(R.menu.ansen_toolbar_menu);
 		toolbar.setNavigationIcon(R.mipmap.ic_menu_white);
 		toolbar.setTitle("关注公众号[Android开发者666]");

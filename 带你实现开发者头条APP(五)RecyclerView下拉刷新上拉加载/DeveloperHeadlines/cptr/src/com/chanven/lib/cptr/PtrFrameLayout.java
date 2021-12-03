@@ -2,7 +2,6 @@ package com.chanven.lib.cptr;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -13,6 +12,8 @@ import android.widget.AbsListView;
 import android.widget.GridView;
 import android.widget.Scroller;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chanven.lib.cptr.indicator.PtrIndicator;
 import com.chanven.lib.cptr.loadmore.DefaultLoadMoreFooter;

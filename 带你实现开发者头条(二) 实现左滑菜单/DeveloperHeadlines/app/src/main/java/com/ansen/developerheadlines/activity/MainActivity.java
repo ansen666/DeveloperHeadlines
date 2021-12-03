@@ -2,18 +2,19 @@ package com.ansen.developerheadlines.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentActivity;
+
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.fragment.ContentFragment;
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
 	private RelativeLayout rlHome, rlGift, rlShare;
 	private int currentSelectItem = R.id.rl_home;//默认首页
@@ -24,7 +25,7 @@ public class MainActivity extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerLayout = findViewById(R.id.drawer_layout);
 
 		findViewById(R.id.iv_menu).setOnClickListener(clickListener);
 		
@@ -37,9 +38,9 @@ public class MainActivity extends FragmentActivity{
 	}
 
 	private void initLeftMenu() {
-		rlHome = (RelativeLayout) findViewById(R.id.rl_home);
-		rlGift = (RelativeLayout) findViewById(R.id.rl_gift);
-		rlShare = (RelativeLayout) findViewById(R.id.rl_share);
+		rlHome = findViewById(R.id.rl_home);
+		rlGift = findViewById(R.id.rl_gift);
+		rlShare = findViewById(R.id.rl_share);
 		
 		rlHome.setOnClickListener(onLeftMenuClickListener);
 		rlGift.setOnClickListener(onLeftMenuClickListener);

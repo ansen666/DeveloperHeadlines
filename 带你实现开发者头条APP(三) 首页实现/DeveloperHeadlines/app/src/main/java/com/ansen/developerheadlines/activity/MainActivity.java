@@ -2,22 +2,22 @@ package com.ansen.developerheadlines.activity;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.ansen.developerheadlines.R;
-import com.ansen.developerheadlines.fragment.ContentFragment;
 import com.ansen.developerheadlines.fragment.GiftFragment;
 import com.ansen.developerheadlines.fragment.MainFragment;
 import com.ansen.developerheadlines.fragment.ShareFragment;
 
-public class MainActivity extends FragmentActivity{
+public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
 
 	private RelativeLayout rlHome, rlGift, rlShare;
@@ -33,7 +33,7 @@ public class MainActivity extends FragmentActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerLayout = findViewById(R.id.drawer_layout);
 
 		findViewById(R.id.iv_menu).setOnClickListener(clickListener);
 		

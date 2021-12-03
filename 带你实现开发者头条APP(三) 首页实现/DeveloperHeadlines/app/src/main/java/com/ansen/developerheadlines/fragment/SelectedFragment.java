@@ -6,9 +6,6 @@ import java.util.TimerTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.ansen.developerheadlines.R;
 import com.ansen.developerheadlines.adapter.SelectedAdapter;
@@ -29,7 +29,7 @@ import com.ansen.developerheadlines.iview.ICarousePagerSelectView;
  * @author ansen
  * @create time 2016-04-19
  */
-public class SelectedFragment extends Fragment{
+public class SelectedFragment extends Fragment {
 	private ViewPager viewPager;
 	private SelectedPagerAdapter selectedPagerAdapter;
 	
@@ -114,14 +114,15 @@ public class SelectedFragment extends Fragment{
 			}
 		};
 	};
-	
+
 	@Override
-	public void onDestroy(){
+	public void onDestroy() {
+		super.onDestroy();
 		task.cancel();
 		System.exit(0);
 	}
-	
-	private OnPageChangeListener onPageChangeListener=new OnPageChangeListener() {
+
+	private ViewPager.OnPageChangeListener onPageChangeListener=new ViewPager.OnPageChangeListener() {
 		@Override
 		public void onPageSelected(int index) {
 			tvContent.setText(carousePageStr[index]);
